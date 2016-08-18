@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5em;
+    background: #f4f4f4;
+}
+
+.container {
+    background-color: #333;
+    margin: 50px auto;
+    overflow: auto;
+    width: 60%;
+    min-height: 500px;
+    -webkit-transition: color 1s;
+    -webkit-transition: color 1s linear;
+    -webkit-transition: background-color 1s linear;
+    transition: background-color 1s linear;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 22px;
+    padding: 15px 0 10px 10px;
+    border-bottom: 1px solid #fff;
+}
+
+.shouts {
+    width: 90%;
+    background: #f4f4f4;
+    height: 400px;
+    margin: 20px auto;
+    overflow: auto;
+}
+
+.shout {
+    list-style: none;
+    padding: 8px;
+    border-bottom: 1px #ccc dotted;
+}
+
+.shout span {
+    color: #aaa;
+}
+
+#input {
+    width: 90%;
+    min-height: 80px;
+    margin: auto;
+    padding: 0;
+}
+
+#input input[type='text'] {
+    height: 25px;
+    width: 48%;
+    padding: 2px;
+    margin-bottom: 20px;
+    border: #666 1px solid;
+}
+
+#input .shout-btn {
+    padding: 5px;
+    margin: 10px auto;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width:768px) {
+    #input input[type='text'] {
+        width: 98%;
+    }
+}
+
+.error{
+    background: red;
+    color:#fff;
+    padding: 5px;
+    margin-bottom: 10px;
+}
