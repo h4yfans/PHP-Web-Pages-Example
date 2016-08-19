@@ -1,48 +1,39 @@
-<?php include 'database.php'; ?>
-<?php 
-//Create select Query
-$query = "SELECT * FROM shouts ORDER BY id DESC";
-$shouts = mysqli_query($con, $query);
+<?php include 'database.php' ?>
+<?php
+// Get number of questions
+$query = "SELECT * FROM questions";
+$results = $mysqli->query($query) or die($mysqli->error.__LINE__);
+$total = $results->num_rows;
 ?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
-    <title>SHOUT IT!</title>
+    <title>PHP Quizzer</title>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
-
 <body>
+<header>
     <div class="container">
-        <header>
-            <h1>SHOUT IT! Shout Box</h1>
-        </header>
-        <div class="shouts">
-            <ul>
-                <?php while($row = mysqli_fetch_assoc($shouts)) :?>
-                <li class="shout">
-                    <span><?php echo $row["date"] ?> - </span> <span><strong><?php echo $row["user"] ?>: </strong></span> <?php echo $row["message"] ?></li>
-                    <?php endwhile; ?>
-
-            </ul>
-        </div>
-        <div id="input">
-           <?php if(isset($_GET['error'])): ?>
-           <div class="error">
-               <?php echo $_GET['error']; ?>
-           </div>
-           
-           <?php endif; ?>
-            <form action="process.php" method="post">
-                <input type="text" name="user" placeholder="Enter your name">
-                <input type="text" name="message" placeholder="Enter a message">
-                <br>
-                <input class="shout-btn" type="submit" name="submit" value="Shout It Out">
-            </form>
-        </div>
+        <h1>PHP Quizzer</h1>
     </div>
+</header>
+<main>
+    <div class="container">
+        <h2>Test Your PHP Knowledge</h2>
+        <p>This is a multiple choice quiz to test your knowledge of PHP</p>
+        <ul>
+            <li><strong>Number of Questions: </strong><?php echo $total ?></li>
+            <li><strong>Type: </strong>Multiple Choice</li>
+            <li><strong>Estimated Time: </strong><?php echo $total* .5; ?> minute<?php if ($total != 2) echo 's' ?></li>
+        </ul>
+        <a href="question.php?n=1" class="start">Start Quiz</a>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        Copyright &copy; 2015, PHP Quizzer
+    </div>
+</footer>
 </body>
-
 </html>

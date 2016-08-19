@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - quizzer@localhost" uuid="475abe71-81fe-4304-a446-28ca31c9829c">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <resolve-scope>information_schema:|test:|quizzer:*</resolve-scope>
+    </data-source>
+  </component>
+</project>

@@ -1,83 +1,74 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: Arial, sans-serif;
     font-size: 15px;
-    line-height: 1.5em;
-    background: #f4f4f4;
+    line-height: 1.6em;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    display: inline-block;
+    width: 180px;
+}
+
+input[type='text'] {
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    padding: 4px;
+    width: 97%;
+}
+
+input[type='number'] {
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    padding: 4px;
+    width: 50px;
 }
 
 .container {
-    background-color: #333;
-    margin: 50px auto;
+    margin: 0 auto;
     overflow: auto;
     width: 60%;
-    min-height: 500px;
-    -webkit-transition: color 1s;
-    -webkit-transition: color 1s linear;
-    -webkit-transition: background-color 1s linear;
-    transition: background-color 1s linear;
 }
 
-header h1 {
-    color: #fff;
-    font-size: 22px;
-    padding: 15px 0 10px 10px;
-    border-bottom: 1px solid #fff;
+header {
+    border-bottom: 3px #f4f4f4 solid;
 }
 
-.shouts {
-    width: 90%;
+footer {
+    border-top: 3px #f4f4f4 solid;
+    padding-top: 3px;
+    text-align: center;
+}
+
+main {
+    padding-bottom: 20px;
+}
+
+.start {
+    background-color: #f4f4f4;
+    border: 1px dotted #ccc;
+    border-radius: 3px;
+    color: #666;
+    display: inline-block;
+    padding: 6px 13px;
+}
+
+.current {
     background: #f4f4f4;
-    height: 400px;
-    margin: 20px auto;
-    overflow: auto;
+    border: 1px dotted #ccc;
+    margin: 20px 0 10px 0;
+    padding: 10px;
 }
 
-.shout {
-    list-style: none;
-    padding: 8px;
-    border-bottom: 1px #ccc dotted;
-}
-
-.shout span {
-    color: #aaa;
-}
-
-#input {
-    width: 90%;
-    min-height: 80px;
-    margin: auto;
-    padding: 0;
-}
-
-#input input[type='text'] {
-    height: 25px;
-    width: 48%;
-    padding: 2px;
-    margin-bottom: 20px;
-    border: #666 1px solid;
-}
-
-#input .shout-btn {
-    padding: 5px;
-    margin: 10px auto;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-@media only screen and (max-width:768px) {
-    #input input[type='text'] {
-        width: 98%;
+@media only screen and (max-width:960px) {
+    .container {
+        width: 80%;
     }
-}
-
-.error{
-    background: red;
-    color:#fff;
-    padding: 5px;
-    margin-bottom: 10px;
 }
