@@ -13,7 +13,7 @@ class Database
     //Class Constructor
     public function __construct()
     {
-        //Call Connect Funtion
+        // Call Connect Funtion
         $this->connect();
     }
 
@@ -43,42 +43,42 @@ class Database
     //Insert
     public function insert($query)
     {
-        $insert_row = $this->link - $query($query) or die($this->link->error . __LINE__);
+        $insert_row = $this->link->query($query) or die($this->link->error . __LINE__);
 
         //Validate Insert
         if ($insert_row) {
             header("Location: index.php?msg=" . urlencode('Record Added'));
         } else {
             die('Error : (' . $this->link->errno . ') ' . $this->link->error);
-            exit();
+            // exit();
         }
     }
 
     //Update
     public function update($query)
     {
-        $update_row = $this->link - $query($query) or die($this->link->error . __LINE__);
+        $update_row = $this->link->query($query) or die($this->link->error . __LINE__);
 
-        //Validate Insert
+        //Validate Update
         if ($update_row) {
-            header("Location: index.php?msg=" . urlencode('Updated'));
+            header("Location: index.php?msg=" . urlencode('Record Updated'));
         } else {
             die('Error : (' . $this->link->errno . ') ' . $this->link->error);
-            exit();
+            // exit();
         }
     }
 
     //Delete
     public function delete($query)
     {
-        $delete_row = $this->link - $query($query) or die($this->link->error . __LINE__);
+        $delete_row = $this->link->query($query) or die($this->link->error . __LINE__);
 
-        //Validate Insert
+        //Validate Delete
         if ($delete_row) {
             header("Location: index.php?msg=" . urlencode('Deleted'));
         } else {
             die('Error : (' . $this->link->errno . ') ' . $this->link->error);
-            exit();
+            // exit();
         }
     }
 }

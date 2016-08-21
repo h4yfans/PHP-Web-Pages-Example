@@ -1,9 +1,33 @@
 <?php include 'includes/header.php' ?>
+
+
+<?php
+$id = $_GET['id'];
+echo '<pre>'; print_r($id); echo '</pre>';
+
+
+//Create DB Object
+$db = new Database();
+
+//Create Query
+$query = "SELECT * FROM posts WHERE id = ".$id;
+
+//Run Query
+$post = $db->select($query)->fetch_assoc();
+
+//Create Query
+$query = "SELECT * FROM categories";
+
+//Run Query
+$categories = $db->select($query);
+
+?>
     <div class="blog-post">
-        <h2 class="blog-post-title">International PHP Conference 2016</h2>
-        <p> Ullamco duis litteris, quibusdam aut tempor, ita veniam senserit familiaritatem, doctrina fugiat ne nescius reprehenderit. Te culpa quid e mandaremus, fore o occaecat ubi eram, de nulla ad anim, deserunt malis esse ex magna in senserit non nescius, veniam occaecat distinguantur sed singulis non appellat, anim despicationes mandaremus elit senserit. Sunt o incididunt, an tamen graviterque, cernantur aute elit et ipsum, aut culpa possumus voluptate. Ne magna admodum ea tamen a in sunt nostrud ab illum probant offendit, iis multos incurreret expetendis. Quo elit varias ipsum consequat, do eram arbitror domesticarum a quis comprehenderit possumus dolore nescius, sunt commodo ita litteris ut qui ut instituendarum, sint laboris ut exercitation, nam velit ita irure, ut ubi relinqueret. Magna tempor nam laborum. Qui summis multos an offendit, deserunt te quem, magna do e aliqua fabulas si eiusmod id tamen. E magna commodo, non quo quae excepteur, hic non cillum arbitror, cillum commodo fabulas. Voluptate multos aut doctrina consectetur, ut e domesticarum. Aut eu eram proident. Hic quorum probant incurreret. Mentitum qui minim, eu aliqua aliquip singulis te illum laboris ex eram quid sed deserunt elit labore in anim. Se a esse litteris.</p>
-        <p> Ullamco duis litteris, quibusdam aut tempor, ita veniam senserit familiaritatem, doctrina fugiat ne nescius reprehenderit. Te culpa quid e mandaremus, fore o occaecat ubi eram, de nulla ad anim, deserunt malis esse ex magna in senserit non nescius, veniam occaecat distinguantur sed singulis non appellat, anim despicationes mandaremus elit senserit. Sunt o incididunt, an tamen graviterque, cernantur aute elit et ipsum, aut culpa possumus voluptate. Ne magna admodum ea tamen a in sunt nostrud ab illum probant offendit, iis multos incurreret expetendis. Quo elit varias ipsum consequat, do eram arbitror domesticarum a quis comprehenderit possumus dolore nescius, sunt commodo ita litteris ut qui ut instituendarum, sint laboris ut exercitation, nam velit ita irure, ut ubi relinqueret. Magna tempor nam laborum. Qui summis multos an offendit, deserunt te quem, magna do e aliqua fabulas si eiusmod id tamen. E magna commodo, non quo quae excepteur, hic non cillum arbitror, cillum commodo fabulas. Voluptate multos aut doctrina consectetur, ut e domesticarum. Aut eu eram proident. Hic quorum probant incurreret. Mentitum qui minim, eu aliqua aliquip singulis te illum laboris ex eram quid sed deserunt elit labore in anim. Se a esse litteris.</p>
+        <h2 class="blog-post-title"><?php echo $post['title']; ?></h2>
+        <p class="blog-post-meta"> <?php echo formatDate($post['date']); ?> by <a href="#"><?php echo $post['author']; ?></a> </p>
+        <?php echo $post['body'] ;?>
+
     </div>
- 
+
     <!-- /.blog-post -->
     <?php include 'includes/footer.php' ?>

@@ -12,4 +12,5 @@ function shorterText($text, $chars = 450){
     $text = substr($text, 0, strrpos($text, ' '));
     $text = $text."...";
     return $text;
+
 }
